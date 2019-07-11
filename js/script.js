@@ -19,7 +19,7 @@ for (let i = 0; i <= list.length - 1; i +=1 ){
 
    }
 };
-//This will append pagination links on bottom of page.
+//This will append pagination links on bottom of page
 const appendPageLinks = (list) => {  
    const maxNumberOfPages = list.length / 10 + 1; 
    const div = document.createElement('div');//creates DIV for pagination links
