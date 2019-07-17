@@ -45,12 +45,10 @@ const appendPageLinks = (list) => {
          });
          
 
+
          }
 
 };
-links.addEventListener('click', (e) => {
-   e.target.links.querySelector(".active");
-});
 
 //links.className(".active");
 
