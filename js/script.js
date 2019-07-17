@@ -42,8 +42,7 @@ const appendPageLinks = (list) => {
       }
    }
    let links = document.querySelectorAll('a');
-
-   for (let i = 0; i < list.length; i += 1) {
+   for (let i = 0; i < list.length; i ++) {
       links[i].addEventListener('click', () => {
          for (let i= 0; i<list.length; i +=1){
             links[i].className = "";
@@ -54,7 +53,6 @@ const appendPageLinks = (list) => {
    };
 
 };
-
 
 
 appendPageLinks(list_students);
