@@ -20,7 +20,8 @@ const showPage = (list, page) => {
 };
 //This will append pagination links on bottom of page
 const appendPageLinks = (list) => {
-   const maxNumberOfPages = list.length / 10 + 1;
+   
+   const maxNumberOfPages = Math.ceil(list.length / 10);
    const div = document.createElement('div');//creates DIV for pagination links
    div.className = "pagination"; //gives "div" a class of pagination
    let ul = document.createElement('ul'); // creates ul
@@ -42,23 +43,22 @@ const appendPageLinks = (list) => {
       }
    }
    let links = document.querySelectorAll('a');
-   for (let i = 0; i < list.length; i ++) {
-      links[i].addEventListener('click', () => {
-         for (let i= 0; i<list.length; i +=1){
-            links[i].className = "";
-         }
-         showPage(list, i);
 
-      });
-   };
+      for (let i = 0; i < links.length; i+=1) {
+
+         links[i].addEventListener('click', (e) => {
+            for (let j = 0; j < links.length; j+=1) {
+               links[j].className = ' ';
+            }
+            links[i].className = "active";
+            showPage(list, i +1 );
+
+         });
+
+      };
+  
 
 };
 
-
 appendPageLinks(list_students);
 showPage(list_students, 1);
-/*
-Loop over pagination links to remove active class from all links
-7. Add the active class to the link that was just clicked. You can identify that
-clicked link using event.target
-*/
