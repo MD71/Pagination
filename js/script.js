@@ -40,14 +40,16 @@ const appendPageLinks = (list) => {
       if (i === 1) {
          links.className = 'active';
       }
-
-
    }
 
    const links = document.querySelectorAll('a');
    for (let i = 0; i < list.length; i += 1) {
       links[i].addEventListener('click', () => {
-         links[i].className = "";
+         for (let i= 0; i<list.length; i +=1){
+            links[i].className = "";
+         }
+         showPage(list, i);
+
       });
    };
 
