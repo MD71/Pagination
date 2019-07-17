@@ -28,30 +28,33 @@ const appendPageLinks = (list) => {
    div.appendChild(ul); 
    div.className = "pagination"; //gives "div" a class of pagination
    page_div[0].appendChild(div); //appends div as a child to .page div
-   
+   let links = document.querySelectorAll(".active")
+
    for (let i = 1; i <= maxNumberOfPages; i++){
       let a = document.createElement('a');
       let li = document.createElement('li');
          a.href = "#"; //Creates a tag into Link   
          ul.appendChild(li); //Appends List Item
          ul.appendChild(a);
+         a.className ="active";
          a.textContent = i; // appends "i" for page number
-         a.className = "active";
+        // links.className = "active";
          li.appendChild(a); // Appends Link to li
          a.addEventListener('click', (e) => {
          showPage(list, i);
-
          });
-
-      }
-       //a.addEventListener('click', (e) => {
-         //e.target.className = "active"; //gives "a" element class name of active.BUT ITS GIVING EVERY number clicked the class
-         //});
          
-               //let active_class = document.querySelectorAll(".active")
 
+         }
 
 };
+links.addEventListener('click', (e) => {
+   e.target.links.querySelector(".active");
+});
+
+//links.className(".active");
+
+
 appendPageLinks(list_students);
 showPage(list_students, 1);
 /*
