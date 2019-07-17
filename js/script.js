@@ -37,13 +37,14 @@ const appendPageLinks = (list) => {
          ul.appendChild(a);
          a.textContent = i; // appends "i" for page number
          li.appendChild(a); // Appends Link to li
+         links = a;
       if (i === 1) {
-         a.className = 'active';
+         links.className = 'active';
       }
-         a.addEventListener('click', (e) => {
+         ul.addEventListener('click', (e) => {
             for (let j = 0; j <= a.length; j++) {
-            a.className = "";
-            a[j].className = 'active';
+            links.className = "";
+            links[j].className = 'active';
             showPage(list, i);
       }
             });
