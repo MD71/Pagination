@@ -36,13 +36,13 @@ const appendPageLinks = (list) => {
       ul.appendChild(a);
       a.textContent = i; // appends "i" for page number
       li.appendChild(a); // Appends Link to li
-      links = a;
+      let links = a;
       if (i === 1) {
          links.className = 'active';
       }
    }
+   let links = document.querySelectorAll('a');
 
-   const links = document.querySelectorAll('a');
    for (let i = 0; i < list.length; i += 1) {
       links[i].addEventListener('click', () => {
          for (let i= 0; i<list.length; i +=1){
