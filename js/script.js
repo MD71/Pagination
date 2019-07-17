@@ -23,34 +23,47 @@ for (let i = 0; i <= list.length - 1; i +=1 ){
 const appendPageLinks = (list) => {  
    const maxNumberOfPages = list.length / 10 + 1; 
    const div = document.createElement('div');//creates DIV for pagination links
-   const page_div = document.getElementsByClassName("page");//grabs div with class of .page
+   div.className = "pagination"; //gives "div" a class of pagination
    let ul = document.createElement('ul'); // creates ul
    div.appendChild(ul); 
-   div.className = "pagination"; //gives "div" a class of pagination
+   const page_div = document.getElementsByClassName("page");//grabs div with class of .page
    page_div[0].appendChild(div); //appends div as a child to .page div
-   let links = document.querySelectorAll(".active")
 
    for (let i = 1; i <= maxNumberOfPages; i++){
-      let a = document.createElement('a');
       let li = document.createElement('li');
+      let a = document.createElement('a');
          a.href = "#"; //Creates a tag into Link   
          ul.appendChild(li); //Appends List Item
          ul.appendChild(a);
-         a.className ="active";
          a.textContent = i; // appends "i" for page number
-        // links.className = "active";
          li.appendChild(a); // Appends Link to li
+      if (i === 1) {
+         a.className = 'active';
+      }
          a.addEventListener('click', (e) => {
-         showPage(list, i);
-         });
+            for (let j = 0; j <= a.length; j++) {
+            a.className = "";
+            a[j].className = 'active';
+            showPage(list, i);
+      }
+            });
+
+      
+
+      }
+     /* 
+   const links= document.querySelectorAll('a');
+   for (let i = 0; i <= links.length; i += 1) {
+      links[i].addEventListener('click', () => {
+      links.className = "";
+
+   });
+      };
+      */
+              //links.className = "active";
+
+   };
          
-
-
-         }
-
-};
-
-//links.className(".active");
 
 
 appendPageLinks(list_students);
