@@ -42,21 +42,18 @@ const appendPageLinks = (list) => {
          links.className = 'active';
       }
    }
-   let links = document.querySelectorAll('a');
-
+   let links = document.querySelectorAll('a');//grabs all a elements 
       for (let i = 0; i < links.length; i+=1) {
-
-         links[i].addEventListener('click', (e) => {
+         links[i].addEventListener('click', (e) => {//removes active class when link clicked
             for (let j = 0; j < links.length; j+=1) {
                links[j].className = ' ';
             }
-            links[i].className = "active";
+            links[i].className = "active";//adds active class to element clicked
             showPage(list, i +1 );
 
          });
 
       };
-  
 
 };
 
